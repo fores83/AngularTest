@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { MatAutocompleteModule, MatInputModule } from '@angular/material';
 import {Routes, RouterModule} from '@angular/router';
 import { HomeComponent } from './home.component';
 
@@ -14,7 +17,12 @@ const routes: Routes = [
   declarations: [HomeComponent],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatInputModule
   ]
 })
 export class HomeModule { }
