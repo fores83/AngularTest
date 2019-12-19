@@ -1,0 +1,59 @@
+<div class="main-panel">
+  <div class="content content-full">
+    <div class="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex justify-content-between">
+            <div class="d-md-inline-block">
+              <div class="input-group" style="width:250px">
+                <form class="example-form">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Name" aria-label="State" [matAutocomplete]="auto" [formControl]="myControl" />
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let state of filteredOptions | async" [value]="state.commit.author.name">
+                        <span>{{state.commit.author.name}}</span>
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <section class="card mt-4">
+            <div class="list-group list-group-messages list-group-flush" *ngFor="let item of options">
+              <div class="list-group-item unread">
+                <div class="list-group-item-figure">
+                  <span class="rating rating-sm mr-3">
+                    <label for="star1">
+                      <span class="fa fa-star"></span>
+                    </label>
+                  </span>
+                  <a href="conversations.html" class="user-avatar">
+                    <div class="avatar avatar-online">
+                      <img src="/assets/img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle">
+                    </div>
+                  </a>
+                </div>
+                <div class="list-group-item-body pl-3 pl-md-4">
+                  <div class="row">
+                    <div class="col-12 col-lg-10">
+                      <h4 class="list-group-item-title">
+                        <a href="conversations.html">Sha: {{ item.sha }}</a>
+                      </h4>
+                      <p class="list-group-item-text text-truncate"> Author: {{ item.commit.author.name }}  </p>
+                      <p class="list-group-item-text text-truncate"> Message: {{ item.commit.message }} </p>
+                    </div>
+                    <div class="col-12 col-lg-2 text-lg-right">
+                      <p class="list-group-item-text"> Date: {{ item.commit.author.date }} </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
