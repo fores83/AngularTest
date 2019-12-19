@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './views/home/home.module';
 
+import { GitServiceService } from './services/git-service.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +16,7 @@ import { HomeModule } from './views/home/home.module';
     AppRoutingModule,
     HomeModule
   ],
-  providers: [],
+  providers: [GitServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
